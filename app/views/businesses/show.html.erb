@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="center">
+      <h2><%= @business.name %></h2>
+      <%= image_tag @business.image.url(:medium) %>
+    </div>
+
+    <h4>
+      <% if @avg_rating.blank? %>
+        No reviews...yet!
+      <% else %>
+        <div id="star-avg" data-score=<%= @avg_rating %>></div>
+        <%= "#{@reviews.length} reviews" %>
+      <% end %>
+    </h4>
+    <p>
+      <%= @business.address %><br>
+      <%= @business.citystatezip %>
+    </p>
+    <p><%= @business.phone %></p>
+    <p><%= link_to @business.website, @business.website %></p>
+
+    <div class="thumbnail">
+      <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=300x200&sensor=false&zoom=14&markers=#{@business.latitude},#{@business.longitude}" %>
+    </div>
+
+    <br>
+
+    <% @business.nearbys.each do |business| %>
+      <p><%= business.name %></p>
+    <% end %>
+
+    <%= link_to 'Edit Business Info', edit_business_path(@business), class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-md-9">
+    <% if @reviews.blank? %>
+      <h4>No reviews yet</h4>
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-md-3"></th>
+            <th class="col-md-9"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @reviews.each do |review| %>
+            <tr>
+              <td>
+                <h4>
+                  <%= "#{review.user.first_name.capitalize} #{review.user.last_name.capitalize[0]}." %>
+                </h4>
+              </td>
+
+              <td>
+                <div class="star-review" data-score=<%= review.rating %>></div>
+
+                <p><%= "#{review.updated_at.strftime("%-m/%-d/%Y")}" %></p>
+                <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>
+
+                <% if current_user == review.user %>
+                  <%= link_to "Edit Review", edit_business_review_path(@business, review) %>
+                <% end %>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+  <%= link_to "Add Review", new_business_review_path(@business, @review), class: "btn btn-primary" %>
+</div>
+
+<br>
+
+<%= link_to 'Back', businesses_path %>
+
+<script>
+  $('#star-avg').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    width: false,
+    noRatedMsg : "I'am readOnly and I haven't rated yet!",
+    size: 10,
+    path: '/assets'
+  });
+
+  $(".star-review").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    width: false,
+    path: '/assets'
+  });
+</script>

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-md-4"></th>
+          <th class="col-md-4"></th>
+          <th class="col-md-4"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @businesses.each do |business| %>
+          <tr>
+            <td>
+              <div class="thumbnail">
+                <%= image_tag business.image %>
+              </div>
+            </td>
+            <td>
+              <h3><%= business.name %></h3>
+            </td>
+            <td>
+              <%= business.address %><br>
+              <%= business.citystatezip %><br>
+              <%= business.phone %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
