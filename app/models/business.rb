@@ -7,6 +7,8 @@ class Business < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  searchkick autocomplete: ['name']
+
   def full_address
     [address, citystatezip].compact.join(', ')
   end

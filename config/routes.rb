@@ -2,7 +2,10 @@ Yelp::Application.routes.draw do
 
   devise_for :users
   resources :businesses do
-    get 'search', :on => :collection
+    collection do
+      get :search
+      get :autocomplete
+    end
     resources :reviews
   end
 

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby "2.1.1"
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -11,6 +12,8 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'paperclip', "~> 4.1"
 gem 'geocoder'
+gem 'searchkick'
+gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
 
 group :production do
   gem 'pg'
@@ -24,5 +27,3 @@ end
 group :doc do
   gem 'sdoc', require: false
 end
-
-ruby "2.1.1"

@@ -1,8 +1,16 @@
 class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
 
+  def autocomplete
+    render json: Business.search(params[:search], autocomplete: true).map(&:name)
+  end
+
   def search
-    @businesses = Business.near(params[:search])
+    if params[:search].present?
+      @businesses = Business.search(params[:search])
+    else
+      @businesses = Business.all
+    end
   end
 
   # GET /businesses
