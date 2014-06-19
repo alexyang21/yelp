@@ -1,4 +1,4 @@
-# $("#typeahead").each ->
-#   $(this).typeahead
-#     name: "businesses"
-#     local: ["Bench Press", "Darm", "Barm"]
+# $ ->
+#   $('#typeahead').typeahead
+#     name: "business"
+#     remote: "/businesses/autocomplete"

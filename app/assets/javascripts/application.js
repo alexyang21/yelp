@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require twitter/typeahead.min
+//= require jquery.ui.all
 //= require_tree .

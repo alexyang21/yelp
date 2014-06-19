@@ -49,10 +49,45 @@
 
 <br>
 
-<%= link_to 'New Business', new_business_path %>
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
 
 <br>
 
-<div id="the_basics">
-  <input class="typeahead" type="text" placeholder="States of USA">
-</div>
+<%= link_to 'New Business', new_business_path %>
+
+<!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<!-- <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script> -->
+<script>
+  $(function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $("#tags").autocomplete({
+      source: availableTags
+    });
+  });
+  </script>

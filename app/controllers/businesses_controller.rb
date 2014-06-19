@@ -2,7 +2,8 @@ class BusinessesController < ApplicationController
   before_action :set_business, only: [:show, :edit, :update, :destroy]
 
   def autocomplete
-    render json: Business.search(params[:search], autocomplete: true).map(&:name)
+    # render json: Business.search(params[:search], autocomplete: true).map(&:name)
+    render json: Business.all
   end
 
   def search

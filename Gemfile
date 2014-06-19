@@ -13,7 +13,7 @@ gem 'devise'
 gem 'paperclip', "~> 4.1"
 gem 'geocoder'
 gem 'searchkick'
-gem 'twitter-typeahead-rails', :git => "git://github.com/yourabi/twitter-typeahead-rails.git"
+gem 'jquery-ui-rails'
 
 group :production do
   gem 'pg'
