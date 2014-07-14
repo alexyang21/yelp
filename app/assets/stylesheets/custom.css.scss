@@ -1,1 +1,44 @@
 @import "bootstrap";
+
+.navbar-default {
+	background-color: #c41200;
+	color: #fff;
+	padding: 10px 130px;
+	.navbar-brand {
+		color: #fff;
+		font-size: 20px;
+	 	font-weight: 600;
+	}
+	.navbar-brand:hover {
+		color: #fff;
+	}
+	 .navbar-nav > li > a {
+	 	color: #fff;
+	 	font-size: 16px;
+	 	font-weight: 600;
+	 }
+	  .navbar-nav > li > a:hover {
+	  	color: #fff;
+	  	text-decoration: underline;
+	  }
+}
+
+.container .jumbotron {
+	background-color: #fdf7e1;
+	border: 1px solid #f2cb3b;
+	h2 {
+		color: #c41200;
+		font-weight: 600;
+	}
+	h3 {
+		font-size: 18px;
+		line-height: 1.5em;
+		font-weight: 400;
+	}
+	.btn-primary {
+		background-color: #ea050b;
+		border-color: #a50508;
+		font-weight: 600;
+	}
+}
+
